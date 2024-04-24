@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/ventas.css">
+    <script src="../scripts/ventasFecha.js"></script>
     <title>Venta de Supermercado</title>
-    <style>
-        /* Aquí puedes agregar estilos CSS según necesites */
-    </style>
+
 </head>
 <body>
     <h1>Registro de Venta</h1>
+    <h3 id="fecha">fecha:</h3>
     <form id="ventaForm">
-        <div>
-            <label for="apellido">Apellido del Cliente:</label>
-            <input type="text" id="apellido" name="apellido" required>
-        </div>
         <div>
             <label for="nombre">Nombre del Cliente:</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -31,10 +27,6 @@
         <div>
             <label for="cantidades">Cantidades:</label>
             <textarea id="cantidades" name="cantidades" rows="4" required></textarea>
-        </div>
-        <div>
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required>
         </div>
         <button type="submit">Registrar Venta</button>
     </form>
