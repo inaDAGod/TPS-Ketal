@@ -11,3 +11,6 @@ input {
     box-sizing: border-box; 
     margin-bottom: 10px; 
 }
+.cantidad{
+    width: 50px;
+}

@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/ventas.css">
-    <script src="../scripts/ventasFecha.js"></script>
+    <script src="../scripts/ventas.js"></script>
     <title>Venta de Supermercado</title>
 
 </head>
 <body>
     <h1>Registro de Venta</h1>
     <h3 id="fecha">fecha:</h3>
-    <form id="ventaForm">
+        <div>
+            <label for="nit">NIT:</label>
+            <input type="text" id="nit" name="nit" required>
+            <button id="buscarCliente">Buscar</button>
+        </div>
         <div>
             <label for="nombre">Nombre del Cliente:</label>
             <input type="text" id="nombre" name="nombre" required>
         </div>
+        <h3>Productos</h3>
         <div>
-            <label for="nit">NIT:</label>
-            <input type="text" id="nit" name="nit" required>
-        </div>
-        <div>
-            <label for="productos">Productos:</label>
-            <textarea id="productos" name="productos" rows="4" required></textarea>
-        </div>
-        <div>
-            <label for="cantidades">Cantidades:</label>
-            <textarea id="cantidades" name="cantidades" rows="4" required></textarea>
-        </div>
+            <label for="productos">Id:</label>
+            <input   type="text" id="productos" name="productos" rows="4" required>
+            <button id="buscarProducto">Buscar</button>
+            <button id="agregarProducto">Agregar</button>
+            <div id="divProductos">
+                <h4 id="nombreProducto">Nombre producto</h4>
+                <label for="cantidad">Cantidades:</label>
+                <input  class="cantidad" type="number" id="cantidadProducto" name="cantidades" rows="4" required>
+           </div>
+          </div>
         <button type="submit">Registrar Venta</button>
-    </form>
+
 </body>
 </html>
