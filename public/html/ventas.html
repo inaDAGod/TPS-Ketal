@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/ventas.css">
-    <title>Ventas ketal</title>
+    <title>Venta de Supermercado</title>
+    <style>
+        /* Aquí puedes agregar estilos CSS según necesites */
+    </style>
 </head>
 <body>
-    <h1>Documento de venta</h1>
+    <h1>Registro de Venta</h1>
+    <form id="ventaForm">
+        <div>
+            <label for="apellido">Apellido del Cliente:</label>
+            <input type="text" id="apellido" name="apellido" required>
+        </div>
+        <div>
+            <label for="nombre">Nombre del Cliente:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+            <label for="nit">NIT:</label>
+            <input type="text" id="nit" name="nit" required>
+        </div>
+        <div>
+            <label for="productos">Productos:</label>
+            <textarea id="productos" name="productos" rows="4" required></textarea>
+        </div>
+        <div>
+            <label for="cantidades">Cantidades:</label>
+            <textarea id="cantidades" name="cantidades" rows="4" required></textarea>
+        </div>
+        <div>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+        </div>
+        <button type="submit">Registrar Venta</button>
+    </form>
 </body>
 </html>
