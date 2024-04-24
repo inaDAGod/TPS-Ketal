@@ -55,6 +55,7 @@ function registrarVenta() {
     let nit = document.getElementById('nit').value;
     let nombre = document.getElementById('nombre').value;
     let fecha = document.getElementById('fecha').textContent;
+    let empleado = document.getElementById('empleado').textContent;
 
     console.log("Fecha:", fecha);
     console.log("NIT:", nit);
@@ -63,6 +64,6 @@ function registrarVenta() {
 
     fetch("http://localhost/TPS-Ketal/public/php/registrarVenta.php",{
       method: "POST",
-      body: JSON.stringify({ nit: nit, nombre: nombre, fecha: fecha, productos: productos }),
+      body: JSON.stringify({ nit: nit, nombre: nombre, fecha: fecha,empleado:empleado, productos: productos }),
     });
 }

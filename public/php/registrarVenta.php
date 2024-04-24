@@ -4,6 +4,7 @@
     $nit = $data->nit;
     $nombre = $data->nombre;
     $fecha = $data->fecha;
+    $empleado = $data->empleado;
     $productos = $data->productos;
     echo $json;
 ?>
