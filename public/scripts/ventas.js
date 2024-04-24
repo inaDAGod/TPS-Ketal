@@ -60,4 +60,9 @@ function registrarVenta() {
     console.log("NIT:", nit);
     console.log("Nombre:", nombre);
     console.log("Detalles del producto:", productos);
+
+    fetch("http://localhost/TPS-Ketal/public/php/registrarVenta.php",{
+      method: "POST",
+      body: JSON.stringify({ nit: nit, nombre: nombre, fecha: fecha, productos: productos }),
+    });
 }
