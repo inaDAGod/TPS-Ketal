@@ -22,13 +22,16 @@ document.addEventListener("DOMContentLoaded", function() {
   var divProductos = document.getElementById('divProductos');
 
   botonAgregar.addEventListener('click', function() {
+      // Se obtiene el valor del productoId dentro del evento click
+      let id = document.getElementById('productoId').value;
+
       // Crear un nuevo div
       var nuevoDiv = document.createElement('div');
       nuevoDiv.classList.add('producto');
 
-      // Agregar contenido al nuevo div
+      // Agregar contenido al nuevo div, incluyendo el id del producto
       nuevoDiv.innerHTML = `
-          <h4>Nombre del producto</h4>
+          <h4>${id}</h4>
           <label for="cantidad">Cantidad:</label>
           <input class="cantidad" type="number" name="cantidades" required>
       `;
@@ -38,3 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+function registrarVenta() {
+  let nit = document.getElementById('nit').value;
+  let nombre = document.getElementById('nombre').value;
+  //console.log(nit);
+  //console.log(nombre);
+  
+}
