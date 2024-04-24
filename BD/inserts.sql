@@ -25,3 +25,6 @@ insert into empleado (id_sucursal, nombre, correo, superadmi, password) values
 insert into tipo_pago values
 ('Efectivo'),
 ( 'Tarjeta');
+
+insert into cliente values 
+(123, 'daniela', 'correo', 141243253);
