@@ -120,4 +120,39 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  var botonBuscarProducto = document.getElementById('buscarProducto');
+  var inputProductoId = document.getElementById('productoId');
+  var divNombreProducto = document.getElementById('divNombreProducto');
+  var nombreProducto = document.getElementById('nombreProducto');
+  var precioUnitarioProducto = document.getElementById('precioUnitarioProducto'); // Nuevo elemento para mostrar el precio unitario
 
+  botonBuscarProducto.addEventListener('click', function() {
+      let idProducto = inputProductoId.value.trim();
+      idProducto = parseInt(idProducto);
+
+      // Realizar la solicitud al servidor para buscar el producto por ID
+      fetch('http://localhost/TPS-Ketal/public/php/busquedaProducto.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id_producto: idProducto })
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.estado === 'encontrado') {
+              // Mostrar el nombre del producto y el precio unitario si se encuentra
+              nombreProducto.textContent = data.nombre;
+              precioUnitarioProducto.textContent = 'Precio unitario: ' + data.precio_unitario; // Mostrar el precio unitario
+              divNombreProducto.style.display = 'block'; // Mostrar el bloque de nombre y precio unitario del producto
+          } else {
+              alert('Producto no encontrado');
+              nombreProducto.textContent = ''; // Limpiar el nombre del producto si no se encuentra
+              precioUnitarioProducto.textContent = ''; // Limpiar el precio unitario
+              divNombreProducto.style.display = 'none'; // Ocultar el bloque de nombre y precio unitario del producto
+          }
+      })
+      .catch(error => console.error('Error:', error));
+  });
+});
