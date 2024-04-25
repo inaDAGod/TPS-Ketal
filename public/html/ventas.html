@@ -6,33 +6,34 @@
     <link rel="stylesheet" href="../styles/ventas.css">
     <script src="../scripts/ventas.js"></script>
     <title>Venta de Supermercado</title>
-
 </head>
 <body>
     <h1>Registro de Venta</h1>
     <h3 id="fecha">fecha:</h3>
-        <div>
-            <label for="nit">NIT:</label>
-            <input type="text" id="nit" name="nit" required>
-            <button id="buscarCliente">Buscar</button>
+    <h3 id="empleado">1</h3>
+    <label for="pago">Tipo Pago:</label>
+    <select id="tipo_pago">
+        <option value="Efectivo">Efectivo</option>
+        <option value="Tarjeta">Tarjeta</option>
+    </select>
+    <div>
+        <label for="nit">NIT:</label>
+        <input type="text" id="nit" name="nit" required>
+        <button id="buscarCliente">Buscar</button>
+    </div>
+    <div>
+        <label for="nombre">Nombre del Cliente:</label>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <h3>Productos</h3>
+    <div>
+        <label for="productoId">Id:</label>
+        <input   type="text" id="productoId" name="productos" required>
+        <button id="buscarProducto">Buscar</button>
+        <button id="agregarProducto">Agregar</button>
+        <div id="divProductos">
         </div>
-        <div>
-            <label for="nombre">Nombre del Cliente:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <h3>Productos</h3>
-        <div>
-            <label for="productos">Id:</label>
-            <input   type="text" id="productos" name="productos" rows="4" required>
-            <button id="buscarProducto">Buscar</button>
-            <button id="agregarProducto">Agregar</button>
-            <div id="divProductos">
-                <h4 id="nombreProducto">Nombre producto</h4>
-                <label for="cantidad">Cantidades:</label>
-                <input  class="cantidad" type="number" id="cantidadProducto" name="cantidades" rows="4" required>
-           </div>
-          </div>
-        <button type="submit">Registrar Venta</button>
-
+    </div>
+    <button onclick="registrarVenta()">Registrar Venta</button>
 </body>
 </html>
