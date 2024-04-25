@@ -13,4 +13,9 @@ input {
 }
 .cantidad{
     width: 50px;
+    
+}
+.contenidoForm{
+    text-align: justify;
+    padding-left: 35%;
 }
