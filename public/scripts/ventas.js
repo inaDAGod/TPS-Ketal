@@ -38,3 +38,37 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  var botonBuscarCliente = document.getElementById('buscarCliente');
+  var inputNit = document.getElementById('nit');
+  var inputNombre = document.getElementById('nombre');
+
+  botonBuscarCliente.addEventListener('click', function() {
+      var nitCliente = inputNit.value.trim(); // Obtener el valor del NIT
+      nitCliente = parseInt(nitCliente);
+      if (nitCliente !== '') {
+          // Realizar la solicitud al servidor
+          fetch('http://localhost/TPS-Ketal/public/php/busquedaVentas.php', { // Cambiado a 'busquedaVentas.php' según tu archivo PHP
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ nit_cliente: nitCliente })
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.estado === 'encontrado') {
+                  // Autocompletar el campo de nombre
+                  inputNombre.value = data.nombre;
+              } else {
+                  alert('Cliente no encontrado');
+                  inputNombre.value = ''; // Limpiar el campo de nombre si el cliente no se encuentra
+              }
+          })
+          .catch(error => console.error('Error:', error));
+      } else {
+          alert('Ingrese un NIT válido');
+      }
+  });
+});
+
