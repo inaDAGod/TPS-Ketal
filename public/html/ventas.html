@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/ventas.css">
+    <script src="../scripts/ventas.js"></script>
+    <title>Venta de Supermercado</title>
+</head>
+<body>
+    <h1>Registro de Venta</h1>
+    <div class="contenidoForm">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td><h3>Fecha:</h3></td>
+                    <td><h3 id="fecha">fecha:</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Empleado:</h3></td>
+                    <td><h3 id="empleado">1</h3></td>
+                </tr>
+            </tbody>
+        </table>
+        <label for="pago"><b>Tipo Pago:</b></label>
+        <select id="tipo_pago" class="pago">
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+        </select>
+        <table  class="tableDiv">
+            <tbody>
+                <tr>
+                    <td> <label for="nit"><b>NIT:</b></label></td>
+                    <td><input type="text" id="nit" name="nit" required></td>
+                    <td><button class="botoncito" id="buscarCliente">Buscar</button></td>
+                </tr>
+                <tr>
+                    <td><label for="nombre"><b>Nombre del Cliente:</b></label></td>
+                    <td><input type="text" id="nombre" name="nombre" required></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Productos</h3>
+        <div>
+            <table class="tableDiv">
+                <tbody>
+                    <tr>
+                        <td><label for="productoId">Id:</label></td>
+                        <td><input   type="text" id="productoId" name="productos" required></td>
+                        <td>
+                            <button class="botoncito" id="buscarProducto">Buscar</button>
+                            <button class="botoncito" id="agregarProducto">Agregar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="divProductos">
+            </div>
+        </div>
+        <div align="center">
+            <button class="boton" onclick="registrarVenta()">Registrar Venta</button>
+        </div>
+       
+    </div>
+    
+</body>
+</html>

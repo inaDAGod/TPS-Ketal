@@ -1,0 +1,64 @@
+h1{
+    font-size: 300%;
+    text-align: center;
+    
+}
+input {
+    border-radius: 40px; 
+    height: 40px; 
+    width: 200px;
+    padding: 5px; 
+    border: 1px solid #da5c5c;
+    box-sizing: border-box; 
+    margin-bottom: 10px; 
+}
+.cantidad{
+    width: 50px;
+    
+}
+.contenidoForm{
+    text-align: justify;
+    background-color: #e99c9cbd;
+    width: 35%;
+    margin: auto;
+    padding: 3%;
+    padding-top: 2%;
+    font-size: 120%;
+}
+.tableDiv td{
+    padding: 20px;
+}
+.botoncito{
+    background-color: rgb(240, 79, 79);
+    width: 100px;
+    height: 30px;
+    border-radius: 40px;
+    color: aliceblue;
+}
+.botoncito:hover{
+    background-color: aliceblue;
+    color: #f75858;
+}
+
+.boton{
+    background-color: rgb(240, 79, 79);
+    width: 200px;
+    height: 50px;
+    border-radius: 40px;
+    color: aliceblue;
+    font-size: 20px;
+}
+.boton:hover{
+    background-color: aliceblue;
+    color: #f75858;
+}
+.pago{
+    color: #f75858;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 21%;
+    border-radius: 40px;
+
+}
