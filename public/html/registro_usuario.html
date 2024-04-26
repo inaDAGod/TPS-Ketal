@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../styles/estilosx.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+</head>
+<body>
+    <section>
+        <div class="container" style="height: 680px;">
+            <h1  style="color: #ffffff;">Registro Nuevos Usuarios</h1>
+            <form method="post" action="../php/registro_usuario.php">
+                <label for="nombre" style="margin-top: 2px;">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre"><br> 
+                <label for="correo">Correo:</label><br>
+                <input type="text" id="correo" name="correo"><br>
+                <label for="password">Contraseña:</label><br>
+                <input type="password" id="password" name="password"><br>
+                <label for="options">Selecciona una opción:</label>
+                <select id="superadmi" name="superadmi" style="padding: 9px;">
+                    <option value="true">Super Admi</option>
+                    <option value="false">Cajero</option>
+                </select><br>
+            <input type="submit" value="Completar" style="margin-top: 40px; font-size: 30px;"><br>            </form>
+        </div>
+    </section>
+</body>
+</html>
