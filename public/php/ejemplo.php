@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,3 +37,6 @@ if(isset($_POST['submit'])){
     pg_close($conexion); // para cerrar conexion
 }
 ?>
+=======
+aca van sus files tipo php
+>>>>>>> 39d7093fdc9ae85f4ad677ce24d3ea1799f7fb78
