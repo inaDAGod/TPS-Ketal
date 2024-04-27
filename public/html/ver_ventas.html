@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <h1>Ventas</h1>
+    <label for="fechaInicio">Fecha inicio:</label>
+    <input type="date" id="fechaInicio">
+    <label for="fechaFin">Fecha fin:</label>
+    <input type="date" id="fechaFin">
+    <button id="filtrar" onclick="filtrar()">Filtrar</button>
+    <button id="todo" onclick="todo()">Todo</button>
     <div class="contenedor-tabla">
         <table id="tabla-ventas" class="tabla">
             <thead>
