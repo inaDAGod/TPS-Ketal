@@ -19,17 +19,19 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('fecha').textContent = fechaFormateada;
 
     var botonAgregar = document.getElementById('agregarProducto');
-    var divProductos = document.getElementById('divProductos');
+    
 
     botonAgregar.addEventListener('click', function() {
         let id = document.getElementById('productoId').value;
-
+        var nombreProducto = document.getElementById('nombreProducto').textContent;
+        var precioUnitarioProducto = document.getElementById('precioUnitarioProducto').textContent; 
         // Crear un nuevo div
         var nuevoDiv = document.createElement('div');
         nuevoDiv.classList.add('producto');
 
         nuevoDiv.innerHTML = `
             <h4>${id}</h4>
+            <p>${nombreProducto} ${precioUnitarioProducto}</p>
             <label for="cantidad">Cantidad:</label>
             <input class="cantidad" type="number" name="cantidades" required>
         `;
@@ -142,10 +144,10 @@ document.addEventListener("DOMContentLoaded", function() {
       .then(response => response.json())
       .then(data => {
           if (data.estado === 'encontrado') {
-              // Mostrar el nombre del producto y el precio unitario si se encuentra
               nombreProducto.textContent = data.nombre;
               precioUnitarioProducto.textContent = 'Precio unitario: ' + data.precio_unitario; // Mostrar el precio unitario
-              divNombreProducto.style.display = 'block'; // Mostrar el bloque de nombre y precio unitario del producto
+              divNombreProducto.style.display = 'block';
+               // Mostrar el bloque de nombre y precio unitario del producto
           } else {
               alert('Producto no encontrado');
               nombreProducto.textContent = ''; // Limpiar el nombre del producto si no se encuentra

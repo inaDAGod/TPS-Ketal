@@ -113,6 +113,7 @@ h1{
     border-radius: 40px;
     color: aliceblue;
     font-size: 20px;
+    text-align: center;
 }
 .boton:hover{
     background-color: aliceblue;
@@ -128,6 +129,12 @@ h1{
     cursor: pointer;
 }
 .cantidad{
+    border-radius: 40px; 
+    height: 40px; 
+    padding: 5px; 
+    border: 1px solid #da5c5c;
+    box-sizing: border-box; 
+    margin-bottom: 10px; 
     width: 50px;
     
 }
