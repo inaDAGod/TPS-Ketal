@@ -42,7 +42,9 @@ input {
 
 .boton{
     background-color: rgb(240, 79, 79);
-    width: 200px;
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
     height: 50px;
     border-radius: 40px;
     color: aliceblue;
@@ -61,4 +63,7 @@ input {
     margin-left: 21%;
     border-radius: 40px;
 
+}
+.divNombreProducto{
+    background-color: #da5c5c
 }

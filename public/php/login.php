@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST["correo"];
     $password = $_POST["password"];
 
-    $conexion = pg_connect("dbname=ketal user=postgres password=9104677");
+    $conexion = pg_connect("dbname=ketal user=postgres password=admin");
     if (!$conexion) {
         die("Error al conectar a la base de datos: " . pg_last_error());
     }
@@ -14,7 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $resultado = pg_query_params($conexion, $sql, $params);
     if (!$resultado) {
-        echo "Error al ejecutar la consulta: " . pg_last_error($conexion);
+        echo '<script>alert("La contraseña o usuario son incorrectos.");</script>';
+        header("Location: ../html/login.html");
         exit;
     }
 
@@ -24,21 +25,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $superadmi = $fila['superadmi'];
     
         if ($superadmi == 't') {
-            header("Location: ../html/ejemplo2.html");
+            header("Location: ../html/gerente.html");
             exit; 
         } else {
-            header("Location: ../html/ejemplo.html");
+            header("Location: ../html/cajero.html");
             exit; 
         }
     
     } else {
         echo '<script>alert("La contraseña o usuario son incorrectos.");</script>';
-         
+        header("Location: ../html/login.html");
+        exit;
     }
-    
-    
 
-    // Cierra la conexión a la base de datos
     pg_close($conexion);
 }
 ?>

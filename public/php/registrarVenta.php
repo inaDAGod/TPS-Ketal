@@ -14,9 +14,27 @@ if (!$conexion) {
     die(json_encode(["estado" => "error_conexion"]));
 }
 
-
 pg_query($conexion, "BEGIN");
 
+// Verificar si el cliente ya existe en la tabla clientes
+$sql_verificar_cliente = "SELECT * FROM cliente WHERE nit_cliente = $1";
+$resultado_verificar_cliente = pg_query_params($conexion, $sql_verificar_cliente, array($nit));
+if (!$resultado_verificar_cliente) {
+    pg_query($conexion, "ROLLBACK");
+    die(json_encode(["estado" => "error_verificar_cliente"]));
+}
+
+if (pg_num_rows($resultado_verificar_cliente) == 0) {
+    // Si el cliente no existe, insertarlo en la tabla clientes
+    $sql_insertar_cliente = "INSERT INTO cliente (nit_cliente, nombre) VALUES ($1, $2)";
+    $resultado_insertar_cliente = pg_query_params($conexion, $sql_insertar_cliente, array($nit, $nombre));
+    if (!$resultado_insertar_cliente) {
+        pg_query($conexion, "ROLLBACK");
+        die(json_encode(["estado" => "error_insertar_cliente"]));
+    }
+}
+
+// Insertar la venta en la tabla ventas
 $sql_venta = "INSERT INTO ventas (id_empleado, nit_cliente, tipo_pago, fecha_venta) VALUES ($empleado, $nit, '$tipo_pago', '$fecha') RETURNING id_venta";
 $resultado_venta = pg_query($conexion, $sql_venta);
 if (!$resultado_venta) {
@@ -64,11 +82,9 @@ if (!$resultado_actualizar_total) {
     die(json_encode(["estado" => "error_actualizar_total"]));
 }
 
-
 pg_query($conexion, "COMMIT");
 
 pg_close($conexion);
-
 
 echo json_encode(["estado" => "venta_registrada_correctamente", "id_venta" => $id_venta]);
 ?>
