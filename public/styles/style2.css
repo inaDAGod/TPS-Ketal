@@ -1,0 +1,10 @@
+.btn-group {
+    display: flex;
+    justify-content: center;
+  }
+  .container .table.thead-dark {
+    background-color: #574C4C !important;
+}
+
+
+
