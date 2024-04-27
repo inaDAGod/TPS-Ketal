@@ -2,14 +2,80 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tabla de Ventas</title>
+    <title>Ventas-Gerente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+      body {
+        background-color: #d3d3d3; /* Esto establecerá el color de fondo a gris medio */
+      }
+      .tabla {
+            background-color: #ffffff; /* Fondo blanco sólido para la tabla */
+        }
+
+        .tabla thead {
+            background-color: #505050; /* Un gris oscuro para los encabezados */
+            color: #ffffff; /* Letra blanca para los encabezados si necesitas más contraste */
+        }
+
+        /* Estilo para las filas y celdas de la tabla para asegurar que no haya transparencia */
+        .tabla th {
+            background-color: #505050; /* Fondo blanco para celdas y encabezados */
+        }
+
+        .tabla td{
+            background-color: #ffffff ; /* Fondo blanco para celdas y encabezados */
+        }
+
+
+      button {
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 13px; /* Tamaño de letra */
+            color: white; /* Color de texto */
+            background-color: #505050; /* Color de fondo - azul de bootstrap */
+            border: none; /* Sin bordes */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cursor tipo puntero */
+            transition: background-color 0.2s, box-shadow 0.2s; /* Transición suave para el color de fondo y sombra */
+            text-transform: uppercase; /* Texto en mayúsculas */
+            font-family: 'Roboto', sans-serif; /* Usar la misma fuente que el resto del sitio */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Sombra ligera para dar profundidad */
+        }
+
+        button:hover {
+            background-color: #505050; /* Color de fondo más oscuro al pasar el ratón por encima */
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada al pasar el ratón por encima */
+        }
+
+        .etiqueta-fecha {
+        font-family: 'Roboto', sans-serif; /* Misma familia de fuente que el título */
+        font-size: 1em; /* Misma escala de tamaño que el título */
+        font-weight: 700; /* Misma negrita que el título */
+        color: black; /* Asumiendo que quieres mantener el color de texto negro */
+    }
+    </style>
+    <link rel="stylesheet" href="../styles/style11.css">
 </head>
 <body>
-    <h1>Ventas</h1>
-    <label for="fechaInicio">Fecha inicio:</label>
+    <div class="contenedor">
+        <header>
+            <img src="../assets/ketalSA.jpg" alt="Logo" id="logo">
+            <nav class="navbar">
+                <a href="gerente.html" style="color: white;"><b>Inicio </b></a>
+                <span> | </span>
+                <a href="registro_usuario.html" style="color: white;"><b> Registrar Empleado </b></a>
+                <span> | </span>
+                <a href="index.html" style="color: white;"><b> Cerrar Sesion </b></a>
+            </nav>
+        </header>
+    
+    </div>
+
+    <h1> </h1>
+    <label for="fechaInicio" class="etiqueta-fecha">Fecha inicio:</label>
     <input type="date" id="fechaInicio">
-    <label for="fechaFin">Fecha fin:</label>
+    <label for="fechaFin" class="etiqueta-fecha">Fecha fin:</label>
     <input type="date" id="fechaFin">
     <button id="filtrar" onclick="filtrar()">Filtrar</button>
     <button id="todo" onclick="todo()">Todo</button>

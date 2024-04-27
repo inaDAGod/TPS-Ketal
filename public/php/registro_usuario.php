@@ -1,5 +1,5 @@
 <?php
-$conexion = pg_connect("dbname=ketal user=postgres password=9104677");
+$conexion = pg_connect("dbname=ketal user=postgres password=admin");
 
 if (!$conexion) {
     die("Error al conectar a la base de datos: " . pg_last_error());
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     echo '<script>alert("Los datos se han insertado correctamente.");</script>';
-    header("Location: ../html/login.html");
+    header("Location: ../html/gerente.html");
     exit; 
 }
 
