@@ -1,19 +1,74 @@
-/* Estilos para la tabla */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-/* Estilos para las celdas de la tabla */
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-/* Estilo para el encabezado de la tabla */
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
+body {
+    background-color: #d3d3d3; /* Color de fondo a gris medio */
+  }
+  
+  .linea-roja {
+    height: 100px; /* Altura de la línea roja */
+    background-color: #E42727; /* Color de la línea */
+    width: 100%; /* Ancho para cubrir la anchura de la página */
+    position: relative; /* Posicionamiento relativo */
+  }
+  
+  .logotipo {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 10px; /* Espacio superior */
+    left: 10px; /* Espacio izquierdo */
+    height: 80px; /* Altura del logotipo */
+  }
+  
+  .tabla {
+    background-color: #ffffff; /* Fondo blanco para la tabla */
+  }
+  
+  .tabla thead {
+    background-color: #505050; /* Gris oscuro para los encabezados */
+    color: #ffffff; /* Letra blanca para los encabezados */
+  }
+  
+  .tabla th {
+    background-color: #505050; /* Fondo gris oscuro para celdas de encabezado */
+  }
+  
+  .tabla td{
+    background-color: #ffffff ; /* Fondo blanco para celdas */
+  }
+  
+  .titulo-ventas {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Centrado verticalmente */
+    left: 100px; /* Espacio desde el logotipo */
+    transform: translateY(-50%); /* Ajuste fino vertical */
+    color: black; /* Color del texto */
+    margin-left: 20px; /* Espacio después del logotipo */
+    font-size: 3em; /* Tamaño del texto */
+    font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+    font-weight: 700; /* Fuente más gruesa */
+  }
+  
+  /* Estilos para botones */
+  button {
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de letra */
+    color: white; /* Color de texto */
+    background-color: #007bff; /* Color de fondo azul */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo puntero */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Sombra ligera */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada al pasar el ratón */
+  }
+  
+  .etiqueta-fecha {
+    font-family: 'Roboto', sans-serif; /* Misma familia de fuente que el título */
+    font-size: 3em; /* Misma escala de tamaño que el título */
+    font-weight: 700; /* Misma negrita que el título */
+    color: black; /* Asumiendo que quieres mantener el color de texto negro */
+  }
+    

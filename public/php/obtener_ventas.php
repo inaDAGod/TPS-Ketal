@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $conexion = pg_connect("dbname=ketal user=postgres password=admin");
 
 if (!$conexion) {
-    die(json_encode(["estado" => "error_conexion"]));
+    die(json_encode(["error" => "error_conexion"]));
 }
 
 // Consulta SQL para obtener los datos de la tabla "ventas"
@@ -18,12 +18,17 @@ if (!$resultado) {
     exit;
 }
 
-// Obteniendo los resultados de la consulta como un array asociativo
+// Obtener los resultados de la consulta como un array asociativo
 $ventas = pg_fetch_all($resultado);
 
-// Cerrando la conexión a la base de datos
+// Convertir el campo "total" a números
+foreach ($ventas as &$venta) {
+    $venta['total'] = floatval(str_replace(',', '.', $venta['total']));
+}
+
+// Cerrar la conexión a la base de datos
 pg_close($conexion);
 
-// Devolviendo los datos en formato JSON
+// Devolver los datos en formato JSON
 echo json_encode(["ventas" => $ventas]);
 ?>

@@ -2,11 +2,97 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tabla de Ventas</title>
-    <link rel="stylesheet" href="..\styles\styles.css">
-    <link rel="stylesheet" href="..\scripts\app.js">
+    <title>Ventas-Gerente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+      body {
+        background-color: #d3d3d3; /* Esto establecerá el color de fondo a gris medio */
+      }
+      .linea-roja {
+        height: 100px; /* Altura de la línea roja */
+        background-color: #E42727; /* Color de la línea */
+        width: 100%; /* Ancho para cubrir toda la anchura de la página */
+        position: relative; /* Posicionamiento relativo para los elementos internos */
+      }
+      .logotipo {
+        position: absolute; /* Posicionamiento absoluto respecto al div padre .linea-roja */
+        top: 10px; /* Espacio desde el borde superior */
+        left: 10px; /* Espacio desde el borde izquierdo */
+        height: 80px; /* Altura del logotipo */
+      }
+      /* Aquí continúan tus estilos existentes */
+      .tabla {
+            background-color: #ffffff; /* Fondo blanco sólido para la tabla */
+        }
+
+        .tabla thead {
+            background-color: #505050; /* Un gris oscuro para los encabezados */
+            color: #ffffff; /* Letra blanca para los encabezados si necesitas más contraste */
+        }
+
+        /* Estilo para las filas y celdas de la tabla para asegurar que no haya transparencia */
+        .tabla th {
+            background-color: #505050; /* Fondo blanco para celdas y encabezados */
+        }
+
+        .tabla td{
+            background-color: #ffffff ; /* Fondo blanco para celdas y encabezados */
+        }
+
+        .titulo-ventas {
+        position: absolute; /* Posicionamiento absoluto dentro de .linea-roja */
+        top: 50%; /* Centrar verticalmente */
+        left: 100px; /* Espacio desde el logotipo */
+        transform: translateY(-110%); /* Ajuste fino vertical */
+        color: rgb(255, 255, 255); /* Color del texto */
+        font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+        font-weight: 700; /* Hace que la fuente sea más gruesa */
+        margin-left: 20px; /* Espacio después del logotipo */
+        font-size: 3em; /* Tamaño del texto */
+      }
+
+      button {
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 13px; /* Tamaño de letra */
+            color: white; /* Color de texto */
+            background-color: #505050; /* Color de fondo - azul de bootstrap */
+            border: none; /* Sin bordes */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cursor tipo puntero */
+            transition: background-color 0.2s, box-shadow 0.2s; /* Transición suave para el color de fondo y sombra */
+            text-transform: uppercase; /* Texto en mayúsculas */
+            font-family: 'Roboto', sans-serif; /* Usar la misma fuente que el resto del sitio */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Sombra ligera para dar profundidad */
+        }
+
+        button:hover {
+            background-color: #505050; /* Color de fondo más oscuro al pasar el ratón por encima */
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada al pasar el ratón por encima */
+        }
+
+        .etiqueta-fecha {
+        font-family: 'Roboto', sans-serif; /* Misma familia de fuente que el título */
+        font-size: 1em; /* Misma escala de tamaño que el título */
+        font-weight: 700; /* Misma negrita que el título */
+        color: black; /* Asumiendo que quieres mantener el color de texto negro */
+    }
+    </style>
 </head>
 <body>
+    <div class="linea-roja"> <!-- Línea roja en la parte superior -->
+        <img src="../assets/logoKetalSA.png" alt="Logotipo de Ketal" class="logotipo">
+        <h1 class="titulo-ventas">Visualización de Ventas</h1>
+    </div> 
+
+    <h1> </h1>
+    <label for="fechaInicio" class="etiqueta-fecha">Fecha inicio:</label>
+    <input type="date" id="fechaInicio">
+    <label for="fechaFin" class="etiqueta-fecha">Fecha fin:</label>
+    <input type="date" id="fechaFin">
+    <button id="filtrar" onclick="filtrar()">Filtrar</button>
+    <button id="todo" onclick="todo()">Todo</button>
     <div class="contenedor-tabla">
         <table id="tabla-ventas" class="tabla">
             <thead>
@@ -20,11 +106,11 @@
                 </tr>
             </thead>
             <tbody>
-                
-                <!-- El JavaScript insertará los datos de las ventas aquí -->
+                <!-- Aquí se insertarán dinámicamente las filas de la tabla -->
             </tbody>
         </table>
     </div>
-    <script src="..\php\obtener_ventas.php"></script>
+
+    <script src="../scripts/app.js"></script>
 </body>
 </html>

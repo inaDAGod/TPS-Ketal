@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style1.css">
+    <title>Venta de Supermercado</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="../assets/logoKetalSA.png" alt="">
+        </div>
+        <div class="form">
+                <h1 >Registrar Venta</h1>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="fecha"><h3>Fecha:</h3></label>
+                        <h3 id="fecha">fecha:</h3>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="empleado"><h3>Empleado:</h3></label>
+                        <h3 id="empleado">1</h3>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="tipo_pago"><b>Tipo Pago:</b></label>
+                        <select id="tipo_pago" class="pago">
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Tarjeta">Tarjeta</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="nit"><b>NIT:</b></label>
+                        <input type="text" id="nit" name="nit" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="nombre"><b>Nombre del Cliente:</b></label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        
+                    </div>
+                    <div class="input-box">
+                        <br>
+                        <button class="botoncito" id="buscarCliente">Buscar</button>
+                    </div>
+                    <div class="input-box">
+                        <label for="productoId"><b>Id Producto:</b></label>
+                        <input type="text" id="productoId" name="productos" required>
+                        
+                       
+                    </div>
+                    <div class="input-box">
+                        <br>
+                        <button class="botoncito" id="buscarProducto">Buscar</button>
+                    </div>
+                    <div class="input-box">
+                        <br>
+                        <button class="botoncito" id="agregarProducto">Agregar</button>
+                    </div>
+
+                    <div class="input-box" style="background-color: rgb(255, 105, 105);">
+                        <div id="divNombreProducto" class="divNombreProducto"">
+                            <label for="nombreProducto"></label>
+                            <span id="nombreProducto"></span>
+                            <span id="precioUnitarioProducto"></span> 
+                        </div>
+                    </div>
+                        
+                    
+                    <br>
+                               
+                        <div id="divProductos"></div>
+
+                   
+                    
+                
+
+                <div align="center">
+                    <button class="boton" onclick="registrarVenta()">Registrar Venta</button>
+                </div>
+
+        </div>
+    </div>
+    
+    <script src="../scripts/ventas.js"></script>
+</body>
+</html>
