@@ -51,7 +51,7 @@ foreach ($productos as $producto) {
     $cantidad = $producto->cantidad;
 
     // Obtener el precio unitario del producto
-    $sql_precio = "SELECT precio_unitario FROM productos WHERE id_producto = $id_producto";
+    $sql_precio = "SELECT sum(precio_unitario) FROM productos WHERE id_producto = $id_producto";
     $resultado_precio = pg_query($conexion, $sql_precio);
     if (!$resultado_precio) {
         pg_query($conexion, "ROLLBACK");
@@ -86,5 +86,5 @@ pg_query($conexion, "COMMIT");
 
 pg_close($conexion);
 
-echo json_encode(["estado" => "venta_registrada_correctamente", "id_venta" => $id_venta]);
+echo json_encode(["estado" => "venta_registrada_correctamente", "id_venta" => $id_venta, "total" => $total_venta ]);
 ?>
