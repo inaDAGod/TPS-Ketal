@@ -80,7 +80,7 @@ function registrarVenta() {
     })
     .then(data => {
         console.log(data);
-        alert('Venta registrada correctamente. ID de venta: ' + data.id_venta);
+        alert('Venta registrada correctamente. Total venta: ' + data.total);
     })
     .catch(error => {
         console.error('Error:', error);
