@@ -1,6 +1,10 @@
 CREATE TABLE h_ventas (
-    id_venta  SERIAL PRIMARY KEY,
+    id_h_venta  SERIAL PRIMARY KEY,
+	id_venta  int,
+	nit_cliente int,
     nombre_sucursal varchar(100),
+	id_empleado int,
+	nombre_empleado varchar(100),
 	zona_sucursal varchar(100),
 	nombre_proveedor varchar(100),
 	producto varchar(100),
@@ -17,7 +21,11 @@ CREATE OR REPLACE FUNCTION addVenta()
 RETURNS trigger AS
 $BODY$
 DECLARE
+	v_id_venta  int;
+	v_nit_cliente int;
     v_nombre_sucursal VARCHAR(100);
+	v_id_empleado int;
+	v_nombre_empleado varchar(100);
     v_zona_sucursal VARCHAR(100);
     v_nombre_proveedor VARCHAR(100);
     v_producto VARCHAR(100);
@@ -43,10 +51,11 @@ BEGIN
 
     
 
-    SELECT tipo_pago, fecha_venta INTO v_tipo_pago, v_fecha_venta
+    SELECT tipo_pago, fecha_venta, nit_cliente, id_empleado INTO v_tipo_pago, v_fecha_venta,v_nit_cliente, v_id_empleado 
     FROM ventas
     WHERE id_venta = NEW.id_venta;
-
+	v_nombre_empleado := (select nombre from empleado where id_empleado = v_id_empleado);
+	v_id_venta := NEW.id_venta;
     
 
     v_producto := (SELECT nombre FROM productos WHERE id_producto = NEW.id_producto);
@@ -71,6 +80,8 @@ BEGIN
 
 
     INSERT INTO h_ventas (
+		id_venta ,
+		nit_cliente,
         nombre_sucursal,
         zona_sucursal,
         nombre_proveedor,
@@ -80,8 +91,12 @@ BEGIN
         cantidad_producto,
         tipo_pago,
         subtotal_venta,
-        fecha_venta
+        fecha_venta,
+		id_empleado,
+		nombre_empleado
     ) VALUES (
+		v_id_venta ,
+		v_nit_cliente,
         v_nombre_sucursal,
         v_zona_sucursal,
         v_nombre_proveedor,
@@ -91,7 +106,9 @@ BEGIN
         v_cantidad_producto,
         v_tipo_pago,
         v_subtotal_venta,
-        v_fecha_venta
+        v_fecha_venta,
+		v_id_empleado,
+		v_nombre_empleado
     );
    
 
@@ -105,4 +122,4 @@ AFTER INSERT ON ventas_productos
 FOR EACH ROW
 EXECUTE FUNCTION addVenta();
 
-select *from h_ventas
+--select *from h_ventas
